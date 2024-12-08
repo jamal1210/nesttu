@@ -1,0 +1,146 @@
+/* General Navbar Styling */
+.custom-navbar {
+    background-color: #61666b; /* Light greyish-blue */
+    padding: 10px 20px;
+    border-bottom: 8px solid #021d38; /* Darker blue */
+}
+
+.navbar-brand {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: #1b1b1b;
+}
+
+.navbar-logo {
+    height: 45px;
+    width: 45px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+.brand-text {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #007ffd; /* Blue */
+}
+
+/* Navbar Links */
+.navbar-links {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-nav {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 25px;
+}
+
+.nav-link {
+    color: #333333; /* Dark grey */
+    text-decoration: none;
+    padding: 10px 15px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+}
+
+.nav-link:hover {
+    color: #ff7f50; /* Coral color */
+    background-color: #1b1b1b; /* Light coral background */
+    border-bottom: 2px solid #ff7f50; /* Coral color */
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #ffffff; /* White */
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    list-style: none;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+    opacity: 1;
+}
+
+.dropdown-item {
+    color: #333333; /* Dark grey */
+    text-decoration: none;
+    padding: 8px 12px;
+    transition: all 0.3s ease;
+}
+
+.dropdown-item:hover {
+    background-color: #ff7f50; /* Coral */
+    color: white;
+    border-radius: 4px;
+}
+
+/* Search Form */
+.search-form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.form-control {
+    border: 2px solid #888888; /* Light grey */
+    border-radius: 25px;
+    padding: 8px 15px;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #0066cc; /* Blue */
+    box-shadow: 0 0 5px rgba(0, 102, 204, 0.5); /* Blue glow */
+}
+
+.btn-search {
+    background-color: #ff7f50; /* Coral */
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 8px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-search:hover {
+    background-color: #e65c3d; /* Darker coral */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar-links {
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-start;
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .search-form {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .form-control {
+        width: 100%;
+    }
+}

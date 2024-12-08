@@ -1,0 +1,36 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block title %}Product Detail{% endblock title %}
+
+{% block main-content %}
+<div class="container my-5">
+    <div class="row">
+        <div class="col-sm-6 text-center align-self-center">
+            <img src="{{ product.product_image.url }}" alt="" class="img-fluid img-thumbnail">
+        </div>
+        <div class="col-sm-5 offset-sm-1">
+            <h2>Product Title: {{ product.title }}</h2>
+            <hr>
+            <h6>Product description: <br> {{ product.description }} </h6>
+            <br>
+
+            <!-- Add to Cart Form -->
+            <form action="{% url 'add-to-cart' %}" method="POST" class="d-inline">
+                {% csrf_token %}
+                <input type="hidden" name="prod-id" value="{{ product.id }}">
+                <button type="submit" class="btn btn-primary shadow">Add to Cart</button>
+            </form>
+
+            <!-- Buy Now Button -->
+
+            <!-- Available Offers -->
+            <h5 class="mt-5">Condition & Offers</h5>
+            <ul>
+                <li>Delivery costs may increase with product weight.</li>
+                <li>Buy 3 products together to get a 5% discount</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock main-content %}
