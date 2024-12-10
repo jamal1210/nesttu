@@ -1,146 +1,163 @@
 /* General Navbar Styling */
-.custom-navbar {
-    background-color: #61666b; /* Light greyish-blue */
+.navbar {
+    background-color: #1a1a1a; /* Dark grey for navbar */
     padding: 10px 20px;
-    border-bottom: 8px solid #021d38; /* Darker blue */
+    border-bottom: 6px solid #b80d9b; /* Coral border for highlight */
+    font-family: Arial, sans-serif;
+    
 }
 
+/* Navbar Brand */
 .navbar-brand {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     text-decoration: none;
-    color: #1b1b1b;
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: bold;
 }
 
 .navbar-logo {
     height: 45px;
-    width: 45px;
+    width: 55px;
     margin-right: 10px;
     border-radius: 50%;
-}
-
-.brand-text {
-    font-size: 1.6rem;
-    font-weight: bold;
-    color: #007ffd; /* Blue */
+    border: 2px solid #ffffff; /* White border for emphasis */
 }
 
 /* Navbar Links */
-.navbar-links {
-    display: flex;
-    align-items: center;
-}
-
 .navbar-nav {
     display: flex;
     list-style: none;
     margin: 0;
     padding: 0;
-    gap: 25px;
+    gap: 20px;
 }
 
 .nav-link {
-    color: #333333; /* Dark grey */
+    color: #dddddd;
     text-decoration: none;
-    padding: 10px 15px;
+    padding: 8px 12px;
     font-size: 1rem;
-    transition: all 0.3s ease;
     border-radius: 5px;
+    transition: all 0.3s ease;
 }
 
 .nav-link:hover {
-    color: #ff7f50; /* Coral color */
-    background-color: #1b1b1b; /* Light coral background */
-    border-bottom: 2px solid #ff7f50; /* Coral color */
+    color: #ffffff;
+    background-color: #b80d9b; /* Coral hover background */
 }
 
 /* Dropdown Menu */
+.nav-item.dropdown {
+    position: relative;
+}
+
 .dropdown-menu {
     display: none;
     position: absolute;
-    background-color: #ffffff; /* White */
-    border-radius: 5px;
+    top: 100%;
+    left: 0;
+    background-color: #2a2a2a; /* Slightly lighter dark grey */
     padding: 10px;
-    margin-top: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
     list-style: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     z-index: 1000;
-    opacity: 0;
-    transition: opacity 0.3s ease;
 }
 
-.dropdown:hover .dropdown-menu {
+.nav-item.dropdown:hover .dropdown-menu {
     display: block;
-    opacity: 1;
 }
 
 .dropdown-item {
-    color: #333333; /* Dark grey */
+    color: #cccccc;
+    padding: 5px 10px;
+    font-size: 0.9rem;
     text-decoration: none;
-    padding: 8px 12px;
+    border-radius: 3px;
     transition: all 0.3s ease;
 }
 
 .dropdown-item:hover {
-    background-color: #ff7f50; /* Coral */
-    color: white;
-    border-radius: 4px;
+    background-color: #ff7f50;
+    color: #ffffff;
 }
 
-/* Search Form */
-.search-form {
+/* Search Bar */
+.search-bar {
     display: flex;
     align-items: center;
     gap: 10px;
+    margin-left: auto;
 }
 
-.form-control {
-    border: 2px solid #888888; /* Light grey */
-    border-radius: 25px;
-    padding: 8px 15px;
-    outline: none;
+.search-input {
+    border: 1px solid #444444;
+    border-radius: 20px;
+    padding: 5px 15px;
+    font-size: 0.9rem;
+    background-color: #2a2a2a;
+    color: #ffffff;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.form-control:focus {
-    border-color: #0066cc; /* Blue */
-    box-shadow: 0 0 5px rgba(0, 102, 204, 0.5); /* Blue glow */
+.search-input:focus {
+    border-color: #ff7f50;
+    box-shadow: 0 0 6px rgba(255, 127, 80, 0.5);
+    outline: none;
 }
 
-.btn-search {
-    background-color: #ff7f50; /* Coral */
-    color: white;
+.search-btn {
+    background-color: #ff7f50;
+    color: #ffffff;
     border: none;
-    border-radius: 25px;
-    padding: 8px 15px;
+    border-radius: 20px;
+    padding: 5px 15px;
+    font-size: 0.9rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
-.btn-search:hover {
-    background-color: #e65c3d; /* Darker coral */
+.search-btn:hover {
+    background-color: #e65c3d;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .navbar-links {
-        flex-direction: column;
-        width: 100%;
-        align-items: flex-start;
-    }
-
     .navbar-nav {
         flex-direction: column;
         gap: 10px;
         width: 100%;
     }
 
-    .search-form {
+    .nav-item {
+        text-align: left;
         width: 100%;
-        margin-top: 10px;
     }
 
-    .form-control {
+    .search-bar {
+        flex-direction: column;
         width: 100%;
+        gap: 10px;
+    }
+
+    .search-input {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar-brand {
+        font-size: 1rem;
+    }
+
+    .nav-link {
+        font-size: 0.9rem;
+        padding: 5px 8px;
+    }
+
+    .dropdown-item {
+        font-size: 0.8rem;
     }
 }

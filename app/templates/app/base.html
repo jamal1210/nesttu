@@ -51,24 +51,24 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/">Home</a>
+              <a class="nav-link active" aria-current="page" href="/">HOME</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle text-white" href="#" id="electronicsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Nesttu 
+                NESTTU 
               </a>
               <ul class="dropdown-menu" aria-labelledby="electronicsDropdown">
-                <li><a class="dropdown-item" href="{% url 'mobile' %}">Men's Fashion</a></li>
-                <li><a class="dropdown-item" href="#">Women's Fashion</a></li>
+                <li><a class="dropdown-item" href="{% url 'mobile' %}">MEN'S FASHION</a></li>
+                <li><a class="dropdown-item" href="#">WOMEN'S FASHION</a></li>
               </ul>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle text-white" href="#" id="fashionDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Fashion
+                FASHION
               </a>
               <ul class="dropdown-menu" aria-labelledby="fashionDropdown">
-                <li><a class="dropdown-item" href="#">Top Wear</a></li>
-                <li><a class="dropdown-item" href="#">Bottom Wear</a></li>
+                <li><a class="dropdown-item" href="#">TOP WEAR </a></li>
+                <li><a class="dropdown-item" href="#"> BOTTOM WEAR</a></li>
               </ul>
             </li>
           </ul>
@@ -99,21 +99,21 @@
                 <!-- Cart -->
                 <li class="nav-item mx-2">
                   <a href="{% url 'cartshow' %}" class="nav-link text-white">
-                    <span class="badge bg-danger">4</span> Cart
+                    <span class="badge bg-danger">4</span> CART
                   </a>
                 </li>
                 <li class="nav-item mx-2">
                   <a href="{% url 'login' %}" class="nav-link text-white">
-                    <span class="badge bg-danger"></span> Form
+                    <span class="badge bg-danger"></span> PAYMENT_FORM
                   </a>
                 </li>
               {% else %}
                 <!-- Login and Registration Links for Non-Authenticated Users -->
                 <li class="nav-item mx-2">
-                  <a href="{% url 'login' %}" class="nav-link text-white">Login</a>
+                  <a href="{% url 'login' %}" class="nav-link text-white">LOGIN</a>
                 </li>
                 <li class="nav-item mx-2">
-                  <a href="{% url 'CustomerRegistration' %}" class="nav-link text-white">Registration</a>
+                  <a href="{% url 'CustomerRegistration' %}" class="nav-link text-white"> REGISTRATION</a>
                 </li>
               {% endif %}
             </ul>
