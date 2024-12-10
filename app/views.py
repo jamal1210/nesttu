@@ -151,6 +151,7 @@ def pluscart(request):
 
     return JsonResponse({'error': 'Invalid request'}, status=400)  # Handle invalid request methods
 
+
 #MINUS CART 
 def minuscart(request):
     if request.method == 'GET':  # Ensure the method is 'GET'
@@ -228,12 +229,12 @@ def remove_cart(request):
 def payment_done(request):
     custid = request.GET.get('custid')
     if not custid:
-        return HttpResponse("Customer ID not provided.")
+        return HttpResponse("confirm address")
     
     try:
         customer = Customer.objects.get(id=custid)
     except Customer.DoesNotExist:
-        raise Http404("Customer does not exist.")
+        raise Http404("login first ")
     
     cart_items = Cart.objects.filter(user=customer.user)
     for item in cart_items:
@@ -266,8 +267,8 @@ def buy_now(request):
 
 
 
-def profile(request):
- return render(request, 'app/profile.html')
+#def profile(request):
+ #return render(request, 'app/profile.html')
 
 
 
@@ -286,8 +287,8 @@ def change_password(request):
 def mobile(request):
  return render(request, 'app/mobile.html')
 
-def login(request):
- return render(request, 'app/login.html')
+#def login(request):
+ #return render(request, 'app/login.html')
 
 
 
