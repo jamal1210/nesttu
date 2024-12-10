@@ -12,7 +12,7 @@
       <ul class="list-unstyled">
         <li class="d-grid gap-2"> <!-- Added gap for better spacing -->
           <a href="{% url 'orders' %}" class="btn btn-primary">Orders</a>
-          <a href="{% url 'Payment_Form' %}" class="btn btn-primary">{{ request.user }}Payment Form</a> <!-- Adjusted the URL name -->
+          <a href="{% url 'Payment_Form' %}" class="btn btn-primary">{{ request.user }} <br>Payment Form</a> <!-- Adjusted the URL name -->
           <h6 class="mt-3">Please submit your payment form to confirm your order.</h6> <!-- Added margin-top for spacing -->
         </li>
       </ul>      

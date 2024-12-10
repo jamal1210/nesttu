@@ -255,59 +255,36 @@ def orders(request):
 
 
 
+#payment_form
+
+from .forms import PaymentForm
+
+def payment_view(request):
+    if request.method == 'POST':
+        form = PaymentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('success_url_name')  # লেনদেন সফল হলে এই URL-এ রিডাইরেক্ট করুন
+    else:
+        form = PaymentForm()
+    
+    return render(request, 'app/payment_form.html', {'form': form})
+
+
+def success_view(request):
+    return render(request, 'app/succes_payment.html')
 
 
 
-
-
-
+#optional
 def buy_now(request):
  return render(request, 'app/buynow.html')
 
 
 
 
-#def profile(request):
- #return render(request, 'app/profile.html')
 
-
-
-def address(request):
- add = Customer.objects.filter(user = request.user)
- return render(request, 'app/address.html',{'add':add,'active': 'btn-primary'})
-
-
-
-
-
-
-def change_password(request):
- return render(request, 'app/changepassword.html')
-
-def mobile(request):
- return render(request, 'app/mobile.html')
-
-#def login(request):
- #return render(request, 'app/login.html')
-
-
-
-#def customerregistration(request):
- #return render(request, 'app/customerregistration.html')
-
-class CustomerRegistrationView(View):
-    def get(self, request):
-        form = CustomerRegistrationForm()
-        return render(request, 'app/customerregistration.html', {'form': form})
-
-    def post(self, request):
-        form = CustomerRegistrationForm(request.POST)
-        if form.is_valid():
-            messages.success(request, 'Congratulations! Registered successfully.')
-            form.save()
-            return redirect('login')  # Redirect to login after successful registration
-        return render(request, 'app/customerregistration.html', {'form': form})
-
+# personal information 
 
 @method_decorator(login_required,name='dispatch')
 class ProfileView(View):
@@ -335,22 +312,49 @@ class ProfileView(View):
         
 
 
-#payment_section 
 
 
-from .forms import PaymentForm
+def address(request):
+ add = Customer.objects.filter(user = request.user)
+ return render(request, 'app/address.html',{'add':add,'active': 'btn-primary'})
 
-def payment_view(request):
-    if request.method == 'POST':
-        form = PaymentForm(request.POST)
+
+
+#registration and login section 
+
+class CustomerRegistrationView(View):
+    def get(self, request):
+        form = CustomerRegistrationForm()
+        return render(request, 'app/customerregistration.html', {'form': form})
+
+    def post(self, request):
+        form = CustomerRegistrationForm(request.POST)
         if form.is_valid():
+            messages.success(request, 'Congratulations! Registered successfully.')
             form.save()
-            return redirect('success_url_name')  # লেনদেন সফল হলে এই URL-এ রিডাইরেক্ট করুন
-    else:
-        form = PaymentForm()
-    
-    return render(request, 'app/payment_form.html', {'form': form})
+            return redirect('login')  # Redirect to login after successful registration
+        return render(request, 'app/customerregistration.html', {'form': form})
 
 
-def success_view(request):
-    return render(request, 'app/succes_payment.html')
+
+
+
+
+
+def change_password(request):
+ return render(request, 'app/changepassword.html')
+
+def mobile(request):
+ return render(request, 'app/mobile.html')
+
+#def login(request):
+ #return render(request, 'app/login.html')
+
+
+
+#def customerregistration(request):
+ #return render(request, 'app/customerregistration.html')
+
+
+
+

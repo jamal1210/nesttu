@@ -72,7 +72,7 @@ urlpatterns = [
 
     # page sections 
 
-    path('buy/', views.buy_now, name='buy-now'),
+    #path('buy/', views.buy_now, name='buy-now'),
 
     path('mobile/', views.mobile, name='mobile'),
 
