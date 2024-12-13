@@ -1,0 +1,4 @@
+deployment:
+  tasks:
+    - export DEPLOYMENT_TARGET=/home/nestewow/public_html
+    - /bin/cp -R . $DEPLOYMENT_TARGET
