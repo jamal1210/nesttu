@@ -1,4 +1,4 @@
 deployment:
   tasks:
-    - export DEPLOYMENT_TARGET=/home/nestewow/public_html/repositories/nesttu
-    - /bin/cp -R . $DEPLOYMENT_TARGET
+    - export DEPLOYMENT_TARGET=/home/nestewow/public_html/repositories
+    - /bin/cp -R . $DEPLOYPATH
