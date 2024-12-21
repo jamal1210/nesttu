@@ -1,8 +1,8 @@
 /* Navbar styles */
 .navbar {
     background: #000; /* কালো ব্যাকগ্রাউন্ড */
-    padding: 0.4rem 1rem; /* কম উচ্চতার জন্য padding হ্রাস */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 0.2rem 0.4rem; /* কম উচ্চতার জন্য padding হ্রাস */
+    box-shadow: 0 4px 6px rgba(240, 78, 78, 0.1);
     display: flex;
     justify-content: center; /* ন্যাভবার সেন্টারে রাখা */
     align-items: center;
@@ -17,7 +17,7 @@
 .navbar-nav {
     list-style: none;
     display: flex;
-    gap: 1rem;
+    gap: .1rem;
     margin: 0;
     padding: 0;
 }
@@ -44,7 +44,7 @@
 .navbar-nav .dropdown-menu {
     display: none;
     position: absolute;
-    background: #1f4037;
+    background: #000000;
     border-radius: 8px;
     padding: 0.5rem 0;
 }
