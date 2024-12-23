@@ -180,5 +180,31 @@
     <script src="{% static 'app/js/owl.carousel.min.js' %}"></script>
     <script src="{% static 'app/js/all.min.js' %}"></script>
     <script src="{% static 'app/js/myscript.js' %}"></script>
+    <!-- MOBILE TROGGLE Scripts -->
+    {% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+
+        dropdownToggles.forEach(toggle => {
+            toggle.addEventListener('click', function () {
+                const parentDropdown = this.parentElement;
+                parentDropdown.classList.toggle('show');
+                const menu = parentDropdown.querySelector('.dropdown-menu');
+                menu.classList.toggle('show');
+            });
+
+            document.addEventListener('click', function (e) {
+                if (!toggle.contains(e.target) && !toggle.parentElement.contains(e.target)) {
+                    toggle.parentElement.classList.remove('show');
+                    const menu = toggle.parentElement.querySelector('.dropdown-menu');
+                    menu.classList.remove('show');
+                }
+            });
+        });
+    });
+</script>
+{% endblock scripts %}
+
   </body>
 </html>

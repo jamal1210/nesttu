@@ -1,15 +1,17 @@
 /* Navbar styles */
 .navbar {
     background: #000; /* কালো ব্যাকগ্রাউন্ড */
-    padding: 0.2rem 0.4rem; /* কম উচ্চতার জন্য padding হ্রাস */
+    padding: 5px 10px; /* কম উচ্চতার জন্য padding ঠিক */
     box-shadow: 0 4px 6px rgba(240, 78, 78, 0.1);
     display: flex;
     justify-content: center; /* ন্যাভবার সেন্টারে রাখা */
     align-items: center;
+    width: 100%; /* পূর্ণ প্রস্থ */
+    min-height: 50px; /* উচ্চতা হ্রাস */
 }
 
 .navbar-logo {
-    height: 30px; /* উচ্চতা ছোট */
+    height: 30px; /* লোগোর উচ্চতা */
     border-radius: 5px;
 }
 
@@ -17,7 +19,7 @@
 .navbar-nav {
     list-style: none;
     display: flex;
-    gap: .1rem;
+    gap: 0.1rem;
     margin: 0;
     padding: 0;
 }
@@ -102,16 +104,18 @@
 }
 
 /* Responsive styles */
-@media (max-width: 991px) {
+@media (max-width: 999px) {
     .navbar {
         flex-direction: column;
         align-items: center;
+        padding: 5px;
+        height: auto; /* উচ্চতা স্বয়ংক্রিয় করুন */
     }
 
     .navbar-nav {
         flex-direction: column;
         width: 100%;
-        gap: 0.5rem;
+        gap: 0.1rem;
     }
 
     .form-control {
@@ -122,11 +126,17 @@
     .btn-warning {
         width: 100%;
     }
+
+    .navbar-collapse {
+        max-height: 300px; /* ড্রপডাউন ন্যূনতম উচ্চতা সীমাবদ্ধ */
+        overflow-y: auto; /* লম্বা ড্রপডাউন হলে স্ক্রল যোগ করুন */
+    }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 676px) {
     .navbar {
         padding: 0.5rem;
+        height: auto; /* উচ্চতা স্বয়ংক্রিয় করুন */
     }
 
     .navbar-nav {
@@ -138,7 +148,7 @@
     }
 
     .badge.bg-danger {
-        font-size: 0.7rem; /* আরো ছোট ফন্ট সাইজ */
+        font-size: 0.5rem; /* আরো ছোট ফন্ট সাইজ */
         padding: 0.3rem 0.5rem;
     }
 }
@@ -146,7 +156,7 @@
 /* Animations */
 @keyframes pulse {
     0%, 100% {
-        box-shadow: 0 0 10px rgba(229, 57, 53, 0.5);
+        box-shadow: 0 0 10px rgba(200, 255, 0, 0.5);
     }
     50% {
         box-shadow: 0 0 20px rgba(229, 57, 53, 0.8);

@@ -52,6 +52,9 @@ footer {
     gap: 20px;
 }
 
+
+
+
 /* Footer Sections */
 .footer-section {
     flex: 1;
@@ -63,7 +66,7 @@ footer {
     margin-bottom: 15px;
     color: #ffffff;
     text-transform: uppercase;
-    border-bottom: 2px solid #000000;
+    border-bottom: 4px solid #ffffff;
     padding-bottom: 5px;
     text-align: center;
 }
@@ -98,7 +101,7 @@ footer {
 }
 
 .footer-section ul li a:hover {
-    color: #f4c10f;
+    color: #002df7;
     
 }
 
@@ -124,7 +127,7 @@ footer {
 }
 
 .social-icons a:hover {
-    background-color: #f4c10f;
+    background-color: #2cff02;
     transform: scale(1.1);
 }
 
