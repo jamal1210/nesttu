@@ -72,9 +72,12 @@ urlpatterns = [
 
     # page sections 
 
-    #path('buy/', views.buy_now, name='buy-now'),
+    path('Mensfashion/', views.Menfashion.as_view(),name='Mensfashion'),
+    path('womensfashion/', views.womens_fashion.as_view(),name='women_page'),
+    path('top-wear/', views.top_wear.as_view(),name='top-wear'),
+    path('bottom-wear/', views.bottom_wear.as_view(),name='bottom-wear'),
+    
 
-    path('mobile/', views.mobile, name='mobile'),
 
  
 

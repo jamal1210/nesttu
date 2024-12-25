@@ -344,17 +344,34 @@ class CustomerRegistrationView(View):
 def change_password(request):
  return render(request, 'app/changepassword.html')
 
-def mobile(request):
- return render(request, 'app/mobile.html')
 
-#def login(request):
- #return render(request, 'app/login.html')
+#add page sections
+
+class Menfashion(View):
+    def get(self, request):
+        Beauty = Product.objects.filter(category='BT')
+        return render(request, 'app/mensfashion.html', {'Beauty': Beauty})
+    
+
+class womens_fashion(View):
+    def get(self, request):
+        Formal_Shirt = Product.objects.filter(category='BW')
+        return render(request, 'app/womanpage.html', {'Formal_Shirt': Formal_Shirt})
+    
 
 
 
-#def customerregistration(request):
- #return render(request, 'app/customerregistration.html')
+class top_wear(View):
+    def get(self, request):
+        Three_Piece = Product.objects.filter(category='HM')
+        return render(request, 'app/topwearpage.html', {'Three_Piece': Three_Piece})
+    
 
-
+    
+class bottom_wear(View):
+    def get(self, request):
+        woman_sharee = Product.objects.filter(category='FT')
+        return render(request, 'app/bottomwearpage.html', {'woman_sharee': woman_sharee})
+    
 
 

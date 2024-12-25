@@ -42,7 +42,7 @@
         <a class="navbar-brand d-flex align-items-center" href="/">
           <!-- Logo Image -->
           <img src="{% static 'app/images/payavail/nesttu logo.jpg' %}" alt="NESTTU Logo" class="navbar-logo me-2">
-          NESTTU FASHION CORNER
+          NESTTU FASHION CORNE
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -57,8 +57,8 @@
                 NESTTU 
               </a>
               <ul class="dropdown-menu" aria-labelledby="electronicsDropdown">
-                <li><a class="dropdown-item" href="{% url 'mobile' %}">MEN'S FASHION</a></li>
-                <li><a class="dropdown-item" href="#">WOMEN'S FASHION</a></li>
+                <li><a class="dropdown-item" href="{% url 'Mensfashion' %}">MEN'S FASHION</a></li>
+                <li><a class="dropdown-item" href="{% url 'women_page' %}">WOMEN'S FASHION</a></li>
               </ul>
             </li>
             <li class="nav-item dropdown">
@@ -66,15 +66,15 @@
                 FASHION
               </a>
               <ul class="dropdown-menu" aria-labelledby="fashionDropdown">
-                <li><a class="dropdown-item" href="#">TOP WEAR </a></li>
-                <li><a class="dropdown-item" href="#"> BOTTOM WEAR</a></li>
+                <li><a class="dropdown-item" href="{% url 'top-wear' %}">TOP WEAR </a></li>
+                <li><a class="dropdown-item" href="{% url 'bottom-wear' %}"> BOTTOM WEAR</a></li>
               </ul>
             </li>
           </ul>
           <form class="d-flex">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-warning" type="submit">S</button>
-          </form>
+        </form>        
           <div>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               {% if request.user.is_authenticated %}
@@ -152,6 +152,12 @@
         <div class="footer-section contact">
           <h3>Contact Us</h3>
           <p><i class="fas fa-envelope"></i> info@nesttu.com</p>
+          <p>
+            <a href="https://wa.me/8801334708512" target="_blank" style="text-decoration: none; color: inherit;">
+          <i class="fab fa-whatsapp" style="color: #25d366; font-size: 1.5rem; margin-right: 10px;"></i>
+          Chat with us on WhatsApp
+            </a>
+          </p>
         </div>
 
         <!-- Social Section -->
@@ -183,26 +189,37 @@
     <!-- MOBILE TROGGLE Scripts -->
     {% block scripts %}
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+  document.addEventListener('DOMContentLoaded', function () {
+    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
 
-        dropdownToggles.forEach(toggle => {
-            toggle.addEventListener('click', function () {
-                const parentDropdown = this.parentElement;
-                parentDropdown.classList.toggle('show');
-                const menu = parentDropdown.querySelector('.dropdown-menu');
-                menu.classList.toggle('show');
-            });
+    dropdownToggles.forEach(toggle => {
+        toggle.addEventListener('click', function (e) {
+            e.stopPropagation(); // ইভেন্ট বাবলিং বন্ধ করুন
+            const parentDropdown = this.parentElement;
+            const menu = parentDropdown.querySelector('.dropdown-menu');
 
-            document.addEventListener('click', function (e) {
-                if (!toggle.contains(e.target) && !toggle.parentElement.contains(e.target)) {
-                    toggle.parentElement.classList.remove('show');
-                    const menu = toggle.parentElement.querySelector('.dropdown-menu');
-                    menu.classList.remove('show');
+            // অন্যান্য ড্রপডাউন বন্ধ করুন
+            document.querySelectorAll('.dropdown.show').forEach(dropdown => {
+                if (dropdown !== parentDropdown) {
+                    dropdown.classList.remove('show');
+                    dropdown.querySelector('.dropdown-menu').classList.remove('show');
                 }
             });
+
+            // বর্তমান ড্রপডাউন টগল করুন
+            parentDropdown.classList.toggle('show');
+            menu.classList.toggle('show');
         });
     });
+
+    // ড্রপডাউন ক্লোজ করার জন্য ডকুমেন্টে ক্লিক ইভেন্ট
+    document.addEventListener('click', function () {
+        document.querySelectorAll('.dropdown.show').forEach(dropdown => {
+            dropdown.classList.remove('show');
+            dropdown.querySelector('.dropdown-menu').classList.remove('show');
+        });
+    });
+});
 </script>
 {% endblock scripts %}
 
